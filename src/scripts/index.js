@@ -22,7 +22,7 @@ const createAlbumItem = item =>{
     p.classList = 'album__artist-band font3'
     span.classList = 'album__release font3'
     h2.classList = 'album__name font2'
-    p2.classList = 'album__value font3'
+    p2.classList = 'album__value font2'
 
     img.src = item.img
     p.innerText = item.band
