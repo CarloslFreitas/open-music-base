@@ -117,8 +117,7 @@ body {
 .gender-btn__item{
   display: flex;
 }
-
-.clicked{
+.gender-btn__item:has(> input:checked){
   background-color: red;
   color: white;
 }
@@ -135,6 +134,8 @@ body {
 }
 .range__text{
   font-weight: var(--weight-500);
+  /* border: solid; */
+  width: 16%;
 }
 .range__title{
 

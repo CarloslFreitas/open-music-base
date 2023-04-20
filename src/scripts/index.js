@@ -52,43 +52,87 @@ const renderGenderButtons = genderList => {
     const listGenderBtn = document.querySelector('.gender__buttons')
 
     genderList.forEach(genderBtn => {
-        listGenderBtn.appendChild(createGenderButtons(genderBtn))
+        listGenderBtn.appendChild(filterGenderButtons(genderBtn, genderList))
     })
 }
-
-const createGenderButtons = gender => {
-    const ListGender = categories
+const filterGenderButtons = (gender, ListGender) => {
     const li = document.createElement('li')
     const label = document.createElement('label')
     const radio = document.createElement('input')
+    const span = document.querySelector('#set__value')
     li.classList = 'gender-btn__item'
 
     label.innerText = gender
     radio.type = 'radio'
-    radio.name = 'teste'
-    radio.type = 'hidden'
-    console.log()
+    radio.name = 'gender'
+    radio.value = gender
+    radio.hidden = true
 
     const findIndexGender = ListGender.findIndex(gender => gender === label.innerText)
     label.htmlFor = findIndexGender
     radio.id = findIndexGender
+
+    label.addEventListener('click', ()=>{
+        span.innerText = ' -- --'
+        if(label.innerText == 'Todos'){
+            const genderFilter = products
+            renderAlbum(genderFilter)
+            filterByRnge(genderFilter)
+        }else{
+            const genderFilter = products.filter(item => item.category == label.htmlFor)
+            filterByRnge(genderFilter)
+            renderAlbum(genderFilter)
+        }
+    })
     
-    // li.addEventListener('click', ()=> {
-    //     ListGender.forEach(item =>{
-    //         if(label.innerText == item){
-    //             li.classList.add('clicked')
-    //             console.log(item ,gender)
-    //         }else if(label.innerText != item){
-    //             li.classList.remove('clicked')
-    //         }
-    //     })
-    // })
-
-
     li.append(label, radio)
 
     return li
 }
+// -----------------------------------------------------------------------
+
+const filterByRnge = list => {
+    const inputRange = document.querySelector('#rangeInput')
+    const span = document.querySelector('#set__value')
+
+    inputRange.value = 0
+    inputRange.step = 1
+    inputRange.min = minPrice(list)
+    inputRange.max = maxPrice(list)
+    
+    inputRange.addEventListener('input', () => {
+        span.innerText = Number(inputRange.value).toFixed(2)
+        const albumFilter = list.filter(item => item.price <= inputRange.value)
+        renderAlbum(albumFilter)
+    })
+}
+const minPrice = list => {
+    let minValue = 0
+    let arrPrices = []
+
+    list.forEach(item => {
+        arrPrices.push(item.price)
+    })
+
+    arrPrices.sort()
+    minValue = arrPrices[0]
+
+    return minValue
+}
+const maxPrice = list =>{
+    let maxValue = 0
+    let arrPrices = []
+
+    list.forEach(item => {
+        arrPrices.push(item.price)
+    })
+
+    arrPrices.sort()
+    maxValue = arrPrices[arrPrices.length - 1]
+
+    return maxValue
+}
 
 renderAlbum(products)
 renderGenderButtons(categories)
+filterByRnge(products)
