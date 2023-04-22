@@ -40,6 +40,7 @@ const createAlbumItem = item =>{
 }
 const btnBuy = item =>{
     const buttonBuy = document.createElement('button')
+    buttonBuy.classList= 'btn__buy font3'
     buttonBuy.innerText = 'Comprar'
     buttonBuy.id = item.id
     // buttonBuy.addEventListener('click', (e)=> {
@@ -61,6 +62,7 @@ const filterGenderButtons = (gender, ListGender) => {
     const radio = document.createElement('input')
     const span = document.querySelector('#set__value')
     li.classList = 'gender-btn__item'
+    label.classList= 'button__filter'
 
     label.innerText = gender
     radio.type = 'radio'
@@ -69,10 +71,11 @@ const filterGenderButtons = (gender, ListGender) => {
     radio.hidden = true
 
     const findIndexGender = ListGender.findIndex(gender => gender === label.innerText)
+
     label.htmlFor = findIndexGender
     radio.id = findIndexGender
 
-    label.addEventListener('click', ()=>{
+    li.addEventListener('click', ()=>{
         span.innerText = ' -- --'
         if(label.innerText == 'Todos'){
             const genderFilter = products
@@ -90,7 +93,6 @@ const filterGenderButtons = (gender, ListGender) => {
     return li
 }
 // -----------------------------------------------------------------------
-
 const filterByRnge = list => {
     const inputRange = document.querySelector('#rangeInput')
     const span = document.querySelector('#set__value')

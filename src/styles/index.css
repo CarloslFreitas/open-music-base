@@ -1,1 +1,125 @@
 /* Desenvolva sua estilização aqui ... */
+/* ------------------------------- GENDER SECTION ------------------------------- */
+.gender__container{
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.gender__title{
+  color: var(--color-grey-1);
+}
+.gender__buttons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.button__filter{
+  cursor: pointer;
+}
+.gender-btn__item{
+  display: flex;
+  align-items: center;
+  height: 32px;
+  border-radius: 4px;
+  padding: 0 .5rem;
+  color: var(--color-grey-2);
+  background-color: var(--color-grey-8);
+  border: solid 1px var(--color-grey-8);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.gender-btn__item:hover{
+  color: var(--color-grey-8);
+  background-color: var(--color-grey-2);
+  border: solid 1px var(--color-grey-2);
+}
+.gender-btn__item:has(> input:checked){
+  color: var(--color-grey-8);
+  background-color: var(--color-grey-2);
+  border: solid 1px var(--color-grey-2);
+}
+/* ------------------------------- RANGE SECTION ------------------------------- */
+.range__container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.range__container > div{
+  display: flex;
+  justify-content: space-between;
+}
+.range__text{
+  font-weight: var(--weight-500);
+  color: var(--color-grey-2);
+  width: 16%;
+}
+.range__title{
+  color: var(--color-grey-1);
+}
+.range__value{
+  font-weight: var(--weight-500);
+  color: var(--color-grey-2);
+}
+
+/* ------------------------------- ALBUM SECTION ------------------------------- */
+.album__container{
+  display: flex;
+  flex-direction: column;
+  gap:3rem;
+  border-radius: var(--radius-1);
+}
+.album__title{
+  color: var(--color-grey-1);
+}
+.album__list{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.album__item{
+  height: auto;
+  width: 19.25rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-1);
+  background-color: var(--color-grey-8);
+}
+.album__item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.50rem;
+  padding: .625rem 1rem 1.25rem 1rem;
+}
+.album__item > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+.album__item > figure > img {
+  height: fit-content;
+  width: 19.25rem;
+  border-top-right-radius: var(--radius-1);
+  border-top-left-radius: var(--radius-1);
+}
+.album__artist-band{
+  display: flex;
+  gap: 1.25rem;
+  color: var(--color-grey-2);
+}
+.album__value{
+  font-weight: var(--weight-600);
+  color: var(--color-grey-1);
+}
+.album__name{
+  color: var(--color-grey-1);
+}
+.btn__buy{
+  border: solid 1px var(--color-grey-7);
+  color: var(--color-grey-2);
+  background-color: var(--color-grey-7);
+  padding: 0 .5rem;
+  border-radius: var(--radius-1);
+  height: 2rem;
+}
