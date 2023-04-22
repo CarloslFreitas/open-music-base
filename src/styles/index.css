@@ -122,4 +122,12 @@
   padding: 0 .5rem;
   border-radius: var(--radius-1);
   height: 2rem;
+  transition: 0.4s;
+}
+.btn__buy:hover{
+  border-radius: var(--radius-1);
+  background-color: var(--color-grey-2);
+  border: solid 1px var(--color-grey-2);
+  color: var(--color-grey-9);
+  cursor: pointer;
 }

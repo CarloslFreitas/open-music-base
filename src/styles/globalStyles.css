@@ -80,7 +80,6 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: var(--color-grey-9);
 }
-
 .container {
   width: var(--container);
   max-width: 100%;
