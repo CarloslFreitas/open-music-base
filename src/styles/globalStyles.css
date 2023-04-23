@@ -46,9 +46,9 @@
   --color-grey-8: #212529;
   --color-grey-9: #15171a;
 
-  --color-actived-fixed: #ffffff;
   --color-disable-fixed: #212529;
-  --color-white-fixed: #212529;
+  --color-actived-fixed: #2b2f33;
+  --color-white-fixed: #ffffff;
 
   --font-1: 1.75rem;
   --font-2: 1rem;
@@ -78,6 +78,7 @@ body {
   font-family: "Inter", sans-serif;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
+  transition: 0.5s;
   background-color: var(--color-grey-9);
 }
 .container {
@@ -96,6 +97,6 @@ body {
   justify-content: space-between;
   padding: 3.75rem 0 0 0;
 }
-.header__title{
-  color: var(--color-grey-1);
-}
+
+
+      
